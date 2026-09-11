@@ -1,966 +1,557 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeFlow | Visual Development Platform</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>緑を守る | エコロジーアクション</title>
     <style>
+        /* ----- リセット & ベース ----- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f6faf7;
+            color: #1f2e26;
             line-height: 1.6;
-            color: #333;
-            background-color: #f9fbfd;
+            scroll-behavior: smooth;
         }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header & Navigation */
+
+        /* ----- ヘッダー / ナビゲーション (シンプル・モダン) ----- */
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.9rem 2rem;
+            position: sticky;
+            top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(160, 190, 160, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 20px rgba(0, 20, 10, 0.04);
         }
-        
+
+        .logo {
+            font-weight: 650;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #1c4d2b;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo span {
+            background: #e3f0df;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1f582b;
+        }
+
         nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
+            gap: 0.4rem;
+            flex-wrap: wrap;
         }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            color: #4361ee;
-            font-size: 28px;
-            margin-right: 10px;
-        }
-        
-        .logo-text {
-            font-family: 'Poppins', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #333;
-        }
-        
-        .logo-text span {
-            color: #4361ee;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
+
+        nav a {
+            color: #2a4532;
             text-decoration: none;
-            color: #555;
             font-weight: 500;
-            transition: color 0.3s;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            background: transparent;
         }
-        
-        .nav-links a:hover {
-            color: #4361ee;
+
+        nav a:hover {
+            background: #e3f0df;
+            color: #12401e;
+            transform: translateY(-1px);
         }
-        
-        .cta-button {
-            background-color: #4361ee;
+
+        /* ----- ヒーロー (ミニマル・グリーン) ----- */
+        .hero {
+            background: linear-gradient(130deg, #f1f9f0 0%, #e2efe2 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(100, 140, 100, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            color: #1c4225;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto;
+            color: #2d4f36;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1.6rem;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        /* ----- コンテナ & セクション (すっきり) ----- */
+        .container {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: white;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2.2rem;
+            border-radius: 32px;
+            box-shadow: 0 8px 24px -12px rgba(40, 70, 40, 0.08);
+            border: 1px solid #e6f0e4;
+            transition: box-shadow 0.15s;
+        }
+
+        section:hover {
+            box-shadow: 0 14px 30px -14px rgba(60, 100, 60, 0.10);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 620;
+            color: #194d27;
+            border-left: 5px solid #78b06b;
+            padding-left: 1rem;
+            margin-bottom: 1.6rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* ----- グリッドカード (モダン・フラット) ----- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .card {
+            background: #f7fcf6;
+            padding: 1.8rem 1.4rem;
+            border-radius: 24px;
+            border: 1px solid #ddecdb;
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .card:hover {
+            background: white;
+            border-color: #9dc792;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -16px #2f5a2c30;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #246b32;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .card p {
+            color: #2e4a34;
+            font-size: 0.95rem;
+        }
+
+        .card .badge {
+            display: inline-block;
+            margin-top: 0.8rem;
+            background: #d5ead0;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1f512b;
+        }
+
+        /* ----- フォーム (シンプル・余白たっぷり) ----- */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 0.6rem;
+        }
+
+        input, textarea {
+            background: #f9fdf9;
+            border: 1.5px solid #d2e6cd;
+            border-radius: 40px;
+            padding: 0.9rem 1.4rem;
+            font-size: 1rem;
+            transition: 0.2s;
+            outline: none;
+            font-family: inherit;
+            color: #1a3220;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #6dab62;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(100, 175, 90, 0.15);
+        }
+
+        textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        button {
+            background: #286f33;
             color: white;
             border: none;
-            padding: 12px 28px;
-            border-radius: 6px;
+            padding: 0.8rem 2.2rem;
+            font-size: 1rem;
             font-weight: 600;
+            border-radius: 60px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(30, 80, 30, 0.1);
+            letter-spacing: 0.3px;
         }
-        
-        .cta-button:hover {
-            background-color: #3a56d4;
-            transform: translateY(-2px);
+
+        button:hover {
+            background: #1a5724;
+            transform: scale(0.97);
+            box-shadow: 0 8px 16px -8px #1b4a1f40;
         }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #333;
-            cursor: pointer;
+
+        .form-hint {
+            font-size: 0.85rem;
+            color: #477a4a;
+            background: #edf7ea;
+            padding: 0.2rem 1.2rem;
+            border-radius: 60px;
         }
-        
-        /* Hero Section */
-        .hero {
-            padding: 150px 0 100px;
-            background: linear-gradient(135deg, #f0f4ff 0%, #f9fbfd 100%);
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .hero-text {
-            flex: 1;
-            padding-right: 40px;
-        }
-        
-        .hero-text h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #222;
-        }
-        
-        .hero-text h1 span {
-            color: #4361ee;
-        }
-        
-        .hero-text p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .secondary-button {
-            background-color: white;
-            color: #4361ee;
-            border: 2px solid #4361ee;
-            padding: 12px 28px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .secondary-button:hover {
-            background-color: #f0f4ff;
-        }
-        
-        .hero-image {
-            flex: 1;
+
+        /* ----- フッター (クリーン) ----- */
+        footer {
+            background: #eaf3e8;
+            padding: 2.2rem 1.5rem;
             text-align: center;
+            color: #1d4225;
+            border-top: 1px solid #c7dec2;
+            border-radius: 32px 32px 0 0;
+            margin-top: 2.5rem;
         }
-        
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(67, 97, 238, 0.15);
+
+        footer p {
+            margin: 0.2rem 0;
+            font-weight: 450;
         }
-        
-        /* Features Section */
-        .section-title {
+
+        .footer-small {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        /* ----- トースト (シンプルフィードバック) ----- */
+        .toast {
+            visibility: hidden;
+            min-width: 200px;
+            background: #1b4723;
+            color: #f0fcee;
             text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: #222;
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .features {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .feature-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            background-color: #eef2ff;
-            color: #4361ee;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        .feature-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card p {
-            color: #666;
-        }
-        
-        /* Benefits Section */
-        .benefits {
-            padding: 100px 0;
-            background-color: #f0f4ff;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .benefit-item {
-            text-align: center;
-            padding: 30px 20px;
-        }
-        
-        .benefit-icon {
-            color: #4361ee;
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-        
-        .benefit-item h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-        
-        .benefit-item p {
-            color: #666;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial {
-            background: #f9fbfd;
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .testimonial-text {
-            font-size: 18px;
-            font-style: italic;
-            margin-bottom: 30px;
-            color: #555;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #4361ee;
-            font-size: 24px;
-        }
-        
-        .author-info h4 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-        
-        .author-info p {
-            color: #777;
-            font-size: 14px;
-        }
-        
-        /* Pricing Section */
-        .pricing {
-            padding: 100px 0;
-            background-color: #f9fbfd;
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .pricing-card {
-            background: white;
-            border-radius: 10px;
-            padding: 40px 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .pricing-card.featured {
-            border-top: 5px solid #4361ee;
-            transform: scale(1.05);
-            position: relative;
-        }
-        
-        .featured-badge {
-            position: absolute;
-            top: -12px;
+            border-radius: 60px;
+            padding: 0.8rem 1.8rem;
+            position: fixed;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #4361ee;
-            color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
+            z-index: 999;
+            font-weight: 500;
+            backdrop-filter: blur(6px);
+            background: #1c4824e0;
+            box-shadow: 0 6px 18px rgba(0,20,0,0.2);
+            opacity: 0;
+            transition: opacity 0.25s;
         }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px);
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
         }
-        
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-        
-        .plan-name {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .plan-price {
-            font-size: 48px;
-            font-weight: 700;
-            color: #4361ee;
-            margin-bottom: 20px;
-        }
-        
-        .plan-price span {
-            font-size: 16px;
-            color: #777;
-        }
-        
-        .plan-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .plan-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            color: #555;
-        }
-        
-        .plan-features li:last-child {
-            border-bottom: none;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
-            text-align: center;
-            color: white;
-        }
-        
-        .cta-section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        
-        .cta-section p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-        
-        .cta-section .cta-button {
-            background-color: white;
-            color: #4361ee;
-            font-size: 16px;
-            padding: 15px 40px;
-        }
-        
-        .cta-section .cta-button:hover {
-            background-color: #f0f4ff;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #222;
-            color: #ccc;
-            padding: 70px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-column h3 {
-            font-size: 20px;
-            color: white;
-            margin-bottom: 25px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #4361ee;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 14px;
-            color: #888;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content {
+
+        /* ----- レスポンシブ (モバイルファースト) ----- */
+        @media (max-width: 700px) {
+            header {
                 flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+                padding: 0.8rem 1.2rem;
             }
-            
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 50px;
-                text-align: center;
+            nav a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
             }
-            
-            .hero-text p {
-                margin: 0 auto 30px;
+            .hero h1 {
+                font-size: 2.2rem;
             }
-            
-            .pricing-card.featured {
-                transform: none;
+            section {
+                padding: 1.5rem;
             }
-            
-            .pricing-card.featured:hover {
-                transform: translateY(-10px);
+            h2 {
+                font-size: 1.5rem;
             }
         }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero-text h1 {
-                font-size: 36px;
-            }
-            
-            .section-title h2 {
-                font-size: 30px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero-buttons button {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero {
-                padding: 130px 0 80px;
-            }
-            
-            .features, .benefits, .testimonials, .pricing, .cta-section {
-                padding: 70px 0;
-            }
-            
-            .feature-card, .testimonial {
-                padding: 25px;
-            }
-            
-            .plan-price {
-                font-size: 36px;
-            }
+
+        /* アンカーオフセット */
+        html {
+            scroll-padding-top: 100px;
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <div class="logo-icon"><i class="fas fa-bezier-curve"></i></div>
-                    <div class="logo-text">Code<span>Flow</span></div>
-                </div>
-                
-                <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#">Resources</a></li>
-                </ul>
-                
-                <button class="cta-button">Start Free Trial</button>
-                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Build Apps Faster With <span>Visual Development</span></h1>
-                    <p>CodeFlow empowers teams to create enterprise-grade applications with minimal coding. Drag, drop, and connect components to build powerful web and mobile apps in record time.</p>
-                    <div class="hero-buttons">
-                        <button class="cta-button">Start Building Free</button>
-                        <button class="secondary-button">Watch Demo</button>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CodeFlow Platform Interface">
-                </div>
-            </div>
+<header>
+    <div class="logo">
+        🌱 エコ・ネイチャー
+        <span>緑を守る</span>
+    </div>
+    <nav>
+        <a href="#about">私たちについて</a>
+        <a href="#issues">環境課題</a>
+        <a href="#action">参加する</a>
+    </nav>
+</header>
+
+<!-- ヒーロー -->
+<div class="hero">
+    <h1>共生する未来へ</h1>
+    <p>一人ひとりの選択が、森と海を守る力になります。</p>
+    <div style="margin-top: 1.2rem; display: inline-block; background: #cde4c6; padding: 0.2rem 1.6rem; border-radius: 60px; font-size: 0.9rem; color: #1b4b23;">
+        🌳 これまでに 2,800 本以上の植樹を支援
+    </div>
+</div>
+
+<div class="container">
+    <!-- アバウト -->
+    <section id="about">
+        <h2>🌿 私たちの使命</h2>
+        <p style="font-size: 1.05rem; margin-bottom: 0.8rem;">
+            私たちは、生物多様性の保全と気候変動への適応を目指す、市民ベースの環境団体です。
+            科学とコミュニティを結び、持続可能な未来を共に創ります。
+        </p>
+        <p>
+            これまでに全国 12 か所で生態系回復プロジェクトを実施。地域の方々と協力し、在来種の植林やプラスチック削減キャンペーンを展開しています。
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem;">
+            <span style="background: #e3f0dd; padding: 0.2rem 1.2rem; border-radius: 60px;">🌎 気候アクション</span>
+            <span style="background: #e3f0dd; padding: 0.2rem 1.2rem; border-radius: 60px;">🐾 野生生物保護</span>
+            <span style="background: #e3f0dd; padding: 0.2rem 1.2rem; border-radius: 60px;">♻️ ゼロ・ウェイスト</span>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Powerful Features for Rapid Development</h2>
-                <p>CodeFlow provides all the tools you need to build, deploy, and scale applications without writing extensive code.</p>
+    <!-- 環境課題 -->
+    <section id="issues">
+        <h2>⚠️ 今、直面する環境課題</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🐘 生物多様性</h3>
+                <p>絶滅危惧種の減少、生態系の分断化。私たちは保護区の拡大と遺伝的多様性の保全に取り組んでいます。</p>
+                <div class="badge">30 種以上のモニタリング</div>
             </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-th-large"></i>
-                    </div>
-                    <h3>Visual Builder</h3>
-                    <p>Drag and drop UI components to design responsive interfaces. Connect data sources with simple point-and-click actions.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Database Integration</h3>
-                    <p>Connect to any data source with built-in connectors. Automatically generate CRUD operations without writing SQL.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Cross-Platform</h3>
-                    <p>Build once, deploy everywhere. Generate applications for web, iOS, and Android from a single visual design.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Extensible with Code</h3>
-                    <p>Add custom functionality with JavaScript when needed. Our platform doesn't limit your creativity or complexity.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Enterprise Security</h3>
-                    <p>Built-in authentication, authorization, and data encryption. SOC2 compliant with enterprise-grade security features.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>One-Click Deployment</h3>
-                    <p>Deploy to cloud or on-premises with a single click. Automatic scaling and monitoring included.</p>
-                </div>
+            <div class="card">
+                <h3>🧴 プラスチック汚染</h3>
+                <p>年間 800 万トンが海洋に流出。使い捨てプラスチックの削減とリサイクルインフラを支援します。</p>
+                <div class="badge">2026 年までに 50 トン回収目標</div>
             </div>
+            <div class="card">
+                <h3>🌳 森林減少</h3>
+                <p>熱帯林の喪失は気候変動を加速。私たちは植林と持続可能な林業を推進し、カーボンシンクを強化します。</p>
+                <div class="badge">1,200 ha の再生を支援</div>
+            </div>
+        </div>
+        <!-- 補足メッセージ -->
+        <div style="background: #eaf5e6; border-radius: 20px; padding: 1rem 1.6rem; margin-top: 1.8rem; border-left: 4px solid #529a4a;">
+            <p style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-weight: 450;">
+                <span style="font-weight: 600;">🌤️ 気候変動との関連：</span> 
+                森林と湿地は二酸化炭素を吸収する「緑の肺」。その保全は、私たちの生存基盤そのものです。
+            </p>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits" id="benefits">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose CodeFlow?</h2>
-                <p>Join thousands of companies accelerating their digital transformation with low-code development.</p>
+    <!-- アクション / 参加フォーム -->
+    <section id="action">
+        <h2>🤝 ボランティアに参加する</h2>
+        <p>メールアドレスを登録して、最新の植樹イベントや清掃活動、オンラインセミナー情報を受け取りましょう。</p>
+        <form id="volForm">
+            <input type="text" id="nameField" placeholder="お名前" required>
+            <input type="email" id="emailField" placeholder="メールアドレス" required>
+            <textarea id="msgField" rows="3" placeholder="環境へのメッセージ・ご意見があればどうぞ…（任意）"></textarea>
+            <div class="btn-group">
+                <button type="submit" id="submitBtn">🌱 参加する</button>
+                <span class="form-hint">📩 毎月のニュースレターも配信</span>
             </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>10x Faster Development</h3>
-                    <p>Build applications in days instead of months with visual development tools.</p>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3>Reduce Costs by 70%</h3>
-                    <p>Lower development and maintenance costs with fewer resources required.</p>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Citizen Developers</h3>
-                    <p>Enable business users to build solutions with minimal IT assistance.</p>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Scale Effortlessly</h3>
-                    <p>From prototype to enterprise-scale applications with the same platform.</p>
-                </div>
-            </div>
+        </form>
+        <div style="margin-top: 1.2rem; background: #f1faf0; padding: 0.4rem 1.2rem; border-radius: 60px; display: inline-block; font-size: 0.9rem;">
+            📅 次回イベント: 6月21日 (日) 里山再生ワークショップ
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Trusted by Industry Leaders</h2>
-                <p>See what our customers have to say about their experience with CodeFlow.</p>
-            </div>
-            
-            <div class="testimonial-slider">
-                <div class="testimonial">
-                    <div class="testimonial-text">
-                        "CodeFlow transformed how we deliver solutions to our business units. What used to take 6 months now takes 3 weeks. Our development team can focus on complex problems while business teams build their own solutions."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SC</div>
-                        <div class="author-info">
-                            <h4>Sarah Chen</h4>
-                            <p>CTO, TechGrowth Inc.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- インパクト表示 (ミニマル) -->
+    <section style="background: #f6fbf4; border: 1px solid #d5e8d0;">
+        <h2>📊 私たちの足跡</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 0.8rem; text-align: center;">
+            <div><span style="font-size: 2.2rem; font-weight: 620; color: #1e672a;">1,420+</span><br>植樹ボランティア</div>
+            <div><span style="font-size: 2.2rem; font-weight: 620; color: #1e672a;">86</span><br>環境教育プログラム</div>
+            <div><span style="font-size: 2.2rem; font-weight: 620; color: #1e672a;">7.8 t</span><br>プラスチック回収</div>
+            <div><span style="font-size: 2.2rem; font-weight: 620; color: #1e672a;">18</span><br>パートナー団体</div>
         </div>
+        <p style="margin-top: 1.2rem; font-style: italic; color: #3d6541; text-align: center;">— 皆さまのご支援で、緑は確実に広がっています —</p>
     </section>
+</div>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Simple, Transparent Pricing</h2>
-                <p>Choose the plan that fits your needs. All plans include core features with no hidden fees.</p>
-            </div>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 class="plan-name">Starter</h3>
-                    <div class="plan-price">$29<span>/month</span></div>
-                    <ul class="plan-features">
-                        <li>Up to 5 users</li>
-                        <li>10 GB storage</li>
-                        <li>Basic components</li>
-                        <li>Community support</li>
-                        <li>1 production app</li>
-                    </ul>
-                    <button class="secondary-button">Get Started</button>
-                </div>
-                
-                <div class="pricing-card featured">
-                    <div class="featured-badge">Most Popular</div>
-                    <h3 class="plan-name">Professional</h3>
-                    <div class="plan-price">$89<span>/month</span></div>
-                    <ul class="plan-features">
-                        <li>Up to 25 users</li>
-                        <li>100 GB storage</li>
-                        <li>All components</li>
-                        <li>Priority support</li>
-                        <li>10 production apps</li>
-                        <li>Custom branding</li>
-                    </ul>
-                    <button class="cta-button">Try Free for 14 Days</button>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3 class="plan-name">Enterprise</h3>
-                    <div class="plan-price">Custom</div>
-                    <ul class="plan-features">
-                        <li>Unlimited users</li>
-                        <li>Unlimited storage</li>
-                        <li>All features included</li>
-                        <li>24/7 dedicated support</li>
-                        <li>Unlimited apps</li>
-                        <li>On-premises option</li>
-                    </ul>
-                    <button class="secondary-button">Contact Sales</button>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+    <p>🌍 未来のためのエコロジー・アクション</p>
+    <p style="font-weight: 300;">&copy; 2026 緑守プロジェクト | 共に、地球を守る一歩を。</p>
+    <p class="footer-small">contact@midori-mamoru.org (お問い合わせ)</p>
+</footer>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Start Building Today</h2>
-            <p>Join over 10,000 companies that use CodeFlow to accelerate their application development. No credit card required for the free trial.</p>
-            <button class="cta-button">Get Started for Free</button>
-        </div>
-    </section>
+<!-- トースト -->
+<div id="toastMessage" class="toast">🌿 ご登録ありがとうございます！ 近日中にご連絡します</div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="logo">
-                        <div class="logo-icon"><i class="fas fa-bezier-curve"></i></div>
-                        <div class="logo-text">Code<span>Flow</span></div>
-                    </div>
-                    <p style="margin-top: 20px; color: #aaa;">The leading visual development platform for building enterprise applications with minimal coding.</p>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Product</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Use Cases</a></li>
-                        <li><a href="#">Integrations</a></li>
-                        <li><a href="#">Roadmap</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">Support</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 CodeFlow. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<script>
+    (function() {
+        const form = document.getElementById('volForm');
+        const nameInput = document.getElementById('nameField');
+        const emailInput = document.getElementById('emailField');
+        const msgInput = document.getElementById('msgField');
+        const toast = document.getElementById('toastMessage');
+        const submitBtn = document.getElementById('submitBtn');
 
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            
-            // Adjust for mobile
-            if (window.innerWidth <= 768) {
-                if (navLinks.style.display === 'flex') {
-                    navLinks.style.flexDirection = 'column';
-                    navLinks.style.position = 'absolute';
-                    navLinks.style.top = '80px';
-                    navLinks.style.left = '0';
-                    navLinks.style.width = '100%';
-                    navLinks.style.backgroundColor = 'white';
-                    navLinks.style.padding = '20px';
-                    navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    
-                    const navItems = document.querySelectorAll('.nav-links li');
-                    navItems.forEach(item => {
-                        item.style.margin = '10px 0';
-                    });
-                }
+        function showToast(text, isError = false) {
+            toast.textContent = text || '🌿 ご登録ありがとうございます！ 近日中にご連絡します';
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        let isSubmitting = false;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (isSubmitting) return;
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+
+            if (name === '' || email === '') {
+                showToast('⚠️ お名前とメールアドレスを入力してください', true);
+                return;
             }
+
+            // 簡易メール形式
+            const mailPattern = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+            if (!mailPattern.test(email)) {
+                showToast('有効なメールアドレスを入力してください', true);
+                return;
+            }
+
+            isSubmitting = true;
+            submitBtn.textContent = '送信中…';
+            submitBtn.disabled = true;
+
+            // 擬似送信
+            setTimeout(() => {
+                const message = msgInput.value.trim();
+                console.log(`[ボランティア] 名前: ${name}, メール: ${email}, メッセージ: ${message || 'なし'}`);
+
+                // 成功トースト
+                showToast(`✅ ${name} さん、登録完了！ 緑のアクションを一緒に広げましょう`);
+
+                // フォームリセット（メッセージは残してもいいが、リセットする）
+                nameInput.value = '';
+                emailInput.value = '';
+                msgInput.value = '';
+
+                // ローカルカウンタ (遊び心)
+                let count = parseInt(localStorage.getItem('midoriVolCount') || '0', 10);
+                count += 1;
+                localStorage.setItem('midoriVolCount', count);
+                if (count % 7 === 0) {
+                    setTimeout(() => {
+                        toast.textContent = `🎉 なんと ${count} 人目の参加者です！ ありがとうございます！`;
+                        toast.classList.add('show');
+                        setTimeout(() => toast.classList.remove('show'), 3500);
+                    }, 400);
+                }
+
+                submitBtn.textContent = '🌱 参加する';
+                submitBtn.disabled = false;
+                isSubmitting = false;
+            }, 700);
         });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if(window.innerWidth <= 768) {
-                        document.querySelector('.nav-links').style.display = 'none';
+
+        // ナビゲーションスムーズスクロール
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }
             });
         });
-        
-        // Simple testimonial slider
-        const testimonials = [
-            {
-                text: "CodeFlow transformed how we deliver solutions to our business units. What used to take 6 months now takes 3 weeks. Our development team can focus on complex problems while business teams build their own solutions.",
-                name: "Sarah Chen",
-                position: "CTO, TechGrowth Inc.",
-                initials: "SC"
-            },
-            {
-                text: "We reduced our app development time by 80% using CodeFlow. The visual interface made it easy for our analysts to build data dashboards without waiting for IT resources.",
-                name: "Marcus Johnson",
-                position: "Director of Operations, DataCorp",
-                initials: "MJ"
-            },
-            {
-                text: "As a non-technical founder, CodeFlow allowed me to build our MVP in just 2 months. I could test ideas quickly and iterate based on user feedback without deep coding knowledge.",
-                name: "Lisa Wang",
-                position: "Founder, StartupLabs",
-                initials: "LW"
-            }
-        ];
-        
-        let currentTestimonial = 0;
-        const testimonialElement = document.querySelector('.testimonial');
-        
-        function rotateTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            updateTestimonial();
+
+        // ウェルカムコンソール
+        console.log('%c🌱 緑守プロジェクト | あなたの一歩が自然を守ります', 'color: #1c6428; font-size: 13px; font-weight: 600;');
+
+        // 初回訪問者にさりげないメッセージ
+        if (!localStorage.getItem('welcomeGreen')) {
+            setTimeout(() => {
+                const tip = document.createElement('div');
+                tip.style.position = 'fixed';
+                tip.style.bottom = '80px';
+                tip.style.right = '20px';
+                tip.style.background = 'white';
+                tip.style.padding = '6px 18px';
+                tip.style.borderRadius = '40px';
+                tip.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                tip.style.border = '1px solid #bcddb3';
+                tip.style.fontSize = '0.85rem';
+                tip.style.zIndex = '999';
+                tip.innerHTML = '🌿 今日から始めるエコアクション';
+                document.body.appendChild(tip);
+                setTimeout(() => tip.remove(), 5000);
+                localStorage.setItem('welcomeGreen', 'true');
+            }, 900);
         }
-        
-        function updateTestimonial() {
-            const testimonial = testimonials[currentTestimonial];
-            testimonialElement.innerHTML = `
-                <div class="testimonial-text">"${testimonial.text}"</div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">${testimonial.initials}</div>
-                    <div class="author-info">
-                        <h4>${testimonial.name}</h4>
-                        <p>${testimonial.position}</p>
-                    </div>
-                </div>
-            `;
-        }
-        
-        // Auto-rotate testimonials every 5 seconds
-        setInterval(rotateTestimonial, 5000);
-        
-        // CTA button interactions
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function() {
-                alert('Thank you for your interest in CodeFlow! You would be redirected to the signup page in a real implementation.');
-            });
-        });
-        
-        // Pricing card interactions
-        document.querySelectorAll('.pricing-card button').forEach(button => {
-            button.addEventListener('click', function() {
-                const planName = this.closest('.pricing-card').querySelector('.plan-name').textContent;
-                alert(`You selected the ${planName} plan. In a real implementation, you would be redirected to the checkout process.`);
-            });
-        });
-    </script>
+    })();
+</script>
+
 </body>
 </html>
